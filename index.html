@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Untuk Kamu ❤️</title>
+
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+
+body{
+
+height:100vh;
+overflow:hidden;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+
+background:linear-gradient(
+120deg,
+#ffd6e8,
+#c8f7ff,
+#fff7b2,
+#e8d5ff
+);
+
+background-size:400% 400%;
+animation:bgMove 10s infinite;
+
+}
+
+
+@keyframes bgMove{
+
+0%{
+background-position:0% 50%;
+}
+
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
+}
+
+}
+
+
+
+.box{
+
+text-align:center;
+z-index:5;
+
+}
+
+
+
+h1{
+
+color:#ff4d88;
+margin-bottom:20px;
+
+}
+
+
+
+p{
+
+font-size:20px;
+color:#555;
+
+}
+
+
+
+input{
+
+padding:12px;
+border:none;
+border-radius:20px;
+text-align:center;
+
+}
+
+
+
+button{
+
+margin-top:20px;
+padding:12px 25px;
+
+border:none;
+border-radius:30px;
+
+background:#ff4d88;
+color:white;
+
+cursor:pointer;
+font-size:17px;
+
+}
+
+
+
+.hidden{
+
+display:none;
+
+}
+
+
+
+
+/* KUCING INTRO */
+
+.cat{
+
+font-size:100px;
+cursor:pointer;
+
+animation:bounce 1s infinite;
+
+}
+
+
+
+@keyframes bounce{
+
+50%{
+transform:translateY(-20px);
+}
+
+}
+
+
+
+
+/* LOVE */
+
+.heart{
+
+position:absolute;
+
+font-size:35px;
+
+animation:fly 2s linear forwards;
+
+}
+
+
+
+@keyframes fly{
+
+
+0%{
+
+bottom:0;
+opacity:1;
+
+}
+
+
+100%{
+
+bottom:90%;
+opacity:0;
+transform:scale(2);
+
+}
+
+
+}
+
+
+
+
+/* KUCING END */
+
+
+.endcat{
+
+position:absolute;
+
+bottom:-100px;
+
+font-size:60px;
+
+animation:jump 3s infinite;
+
+}
+
+
+
+@keyframes jump{
+
+
+0%{
+
+bottom:-100px;
+
+}
+
+
+50%{
+
+bottom:70%;
+transform:rotate(25deg);
+
+}
+
+
+100%{
+
+bottom:-100px;
+
+}
+
+
+}
+
+
+
+
+.star{
+
+position:absolute;
+
+font-size:20px;
+
+animation:starMove 5s linear infinite;
+
+}
+
+
+
+@keyframes starMove{
+
+
+from{
+
+top:100%;
+opacity:0;
+
+}
+
+
+50%{
+
+opacity:1;
+
+}
+
+
+to{
+
+top:-20%;
+opacity:0;
+
+}
+
+
+}
+
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+
+<!-- MUSIK -->
+
+<audio id="music" loop>
+
+<source src="musik.mp3" type="audio/mpeg">
+
+</audio>
+
+
+
+
+
+<!-- PIN -->
+
+
+<div class="box" id="login">
+
+
+<h1>🔒 Rahasia kecil</h1>
+
+<p>Masukkan PIN dulu ❤️</p>
+
+
+<input 
+id="pin"
+placeholder="PIN"
+>
+
+
+<br>
+
+
+<button onclick="check()">
+
+Masuk
+
+</button>
+
+
+<p id="error"></p>
+
+
+</div>
+
+
+
+
+
+
+<!-- INTRO KUCING -->
+
+
+<div class="box hidden" id="intro">
+
+
+<h1>🐾 Hai kamu</h1>
+
+
+<div class="cat" onclick="pet()">
+
+🐱
+
+</div>
+
+
+<p id="catText">
+
+Elus kucingnya dulu ya
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- ISI -->
+
+
+<div class="box hidden" id="main">
+
+
+<h1>
+
+Untuk kamu ❤️
+
+</h1>
+
+
+
+<p>
+
+
+Aku mungkin nggak selalu sempurna,
+
+<br>
+
+tapi aku mau terus belajar
+
+<br>
+
+jadi seseorang yang bisa bikin kamu bahagia.
+
+
+<br><br>
+
+
+Terima kasih sudah hadir di hidup aku 🐾
+
+
+</p>
+
+
+
+<button onclick="playMusic()">
+
+🎵 Putar Musik
+
+</button>
+
+
+
+<br>
+
+
+<button onclick="finish()">
+
+Lihat akhir ✨
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+<script>
+
+
+
+// PIN
+
+
+function check(){
+
+
+let pin =
+document.getElementById("pin").value;
+
+
+
+if(pin=="27032026"){
+
+
+document.getElementById("login")
+.style.display="none";
+
+
+document.getElementById("intro")
+.classList.remove("hidden");
+
+
+}
+
+
+else{
+
+
+document.getElementById("error")
+.innerHTML=
+"PIN salah 😿";
+
+
+}
+
+
+}
+
+
+
+
+
+
+// ELUS KUCING
+
+
+function pet(){
+
+
+
+document.getElementById("catText")
+.innerHTML=
+"Meong~ kucing senang 😺❤️";
+
+
+
+setTimeout(()=>{
+
+
+document.getElementById("intro")
+.style.display="none";
+
+
+
+document.getElementById("main")
+.classList.remove("hidden");
+
+
+
+},1200);
+
+
+
+}
+
+
+
+
+
+
+
+// MUSIK
+
+
+function playMusic(){
+
+
+document
+.getElementById("music")
+.play();
+
+
+}
+
+
+
+
+
+
+
+// AKHIR
+
+
+function finish(){
+
+
+
+document.body.innerHTML +=`
+
+<div class="box">
+
+<h1>
+
+LOVE YOU ❤️
+
+</h1>
+
+<p>
+
+Banyak kucing datang membawa pesan:
+aku sayang kamu 🐱
+
+</p>
+
+</div>
+
+`;
+
+
+
+
+// love
+
+
+for(let i=0;i<50;i++){
+
+
+let love=document.createElement("div");
+
+
+love.className="heart";
+
+love.innerHTML="❤️";
+
+
+love.style.left=
+Math.random()*100+"%";
+
+
+document.body.appendChild(love);
+
+
+
+}
+
+
+
+
+// kucing
+
+
+for(let i=0;i<35;i++){
+
+
+let cat=document.createElement("div");
+
+
+cat.className="endcat";
+
+cat.innerHTML="🐈";
+
+
+cat.style.left=
+Math.random()*100+"%";
+
+cat.style.animationDelay=
+Math.random()*3+"s";
+
+
+
+document.body.appendChild(cat);
+
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+// bintang
+
+
+for(let i=0;i<40;i++){
+
+
+let star=document.createElement("div");
+
+
+star.className="star";
+
+
+star.innerHTML="✨";
+
+
+star.style.left=
+Math.random()*100+"%";
+
+
+star.style.animationDelay=
+Math.random()*5+"s";
+
+
+document.body.appendChild(star);
+
+
+
+}
+
+
+
+</script>
+
+
+
+</body>
+</html>
